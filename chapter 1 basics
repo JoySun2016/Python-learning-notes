@@ -1,0 +1,21 @@
+1. use type() to return the type of objects.
+2. datatypes:
+  2.1 tuple: x = (1,2, 'a'); cannot be altered once defined
+  2.2 list: x = [1,2, 'a']; can be altered once defined. 
+      The function used to alter a list is append(): x.append(8); but append takes exactly one argument each time.
+      To loop through each item in a list:  for item in x, print (item) ; or using the index operator: x[i]
+      Use + to concatenate lists
+      Use * to repeat lists
+      Use in to check if some elements are in the list
+  2.3 string: x = 'hello world'; x = [0] is the first character; x[0:2] is the first two characters; so the ending digit is not included;
+      x[-1] is the last digit; x[-4: -2] is the slice starting from the forth element from the end, stopping before the second element from the end.
+      x[:3] is the slice of the first three elements.
+      x[3:] is the slice starting from the 4th element and going all the way to the end
+      split() returns the specific element in a list, with specified delimiter: name.split(' ')[0] selects the first element in list "name", seperated by space.
+  2.4 dictionary: a collection which is unordered, changeable and indexed; have keys and values. 
+      x = {"abc": "smart", "cde":"stupid"}. The key is the string preceding the colon, the value is the string following the colon.
+      index operator is applicable: x['abc'] will return "smart".
+      iterate over all of the keys:  for name in x: print(x[name]) ;
+      iterate over all of the values: for email in x.values: print(email) ;
+      iterate over all of the items: for name, email in x.items(): print (name) print (email).
+      

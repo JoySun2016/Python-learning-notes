@@ -18,4 +18,7 @@
       iterate over all of the keys:  for name in x: print(x[name]) ;
       iterate over all of the values: for email in x.values: print(email) ;
       iterate over all of the items: for name, email in x.items(): print (name) print (email).
-      
+  2.5 More on string:
+      print('Chris' + str(22)) will print out the string 'Chris22'. 
+3. csv file:
+  3.1 import csv

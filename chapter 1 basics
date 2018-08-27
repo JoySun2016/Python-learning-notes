@@ -18,7 +18,13 @@
       iterate over all of the keys:  for name in x: print(x[name]) ;
       iterate over all of the values: for email in x.values: print(email) ;
       iterate over all of the items: for name, email in x.items(): print (name) print (email).
-  2.5 More on string:
+  2.5 Unpacking: the items in a list or a tuple can be assigned to different variables in one statement.
+      x = ('abc', 'joy', 'sun')
+      code, fname, lname = x
+      so the three items in x will be assigned to the three variables code, fname and lname seperately.
+  2.6 More on string:
       print('Chris' + str(22)) will print out the string 'Chris22'. 
 3. csv file:
   3.1 import csv
+  
+  

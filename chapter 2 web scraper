@@ -37,8 +37,7 @@ print(re.search(r"r[0-9a-z]n", "dog runs to cat"))  # <_sre.SRE_Match object; sp
 $ : 匹配结尾
 ? : 前面的字符可有可无
 
-Example:
-
+eg.1. different patterns
 # \d : decimal digit
 print(re.search(r"r\dn", "run r4n"))           # <_sre.SRE_Match object; span=(4, 7), match='r4n'>
 # \D : any non-decimal digit
@@ -66,3 +65,11 @@ print(re.search(r"cat$", "dog runs to cat"))   # <_sre.SRE_Match object; span=(1
 # ? : may or may not occur
 print(re.search(r"Mon(day)?", "Monday"))       # <_sre.SRE_Match object; span=(0, 6), match='Monday'>
 print(re.search(r"Mon(day)?", "Mon"))          # <_sre.SRE_Match object; span=(0, 3), match='Mon'>
+
+eg.2. if the character is at the start of a line, add "^"; if it is not at the first line, add "flags = re.M" to ask Python to deal with each line seperately.
+string = """
+dog runs to cat.
+I run to dog.
+"""
+print(re.search(r"^I", string))                 # None
+print(re.search(r"^I", string, flags=re.M))     # <_sre.SRE_Match object; span=(18, 19), match='I'>

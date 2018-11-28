@@ -11,7 +11,7 @@ print(re.search(pattern1, string))  # <_sre.SRE_Match object; span=(12, 15), mat
 print(re.search(pattern2, string))  # None
 
 2. flexible match by RegEx
-eg.1. ATTENTION: MUST START WITH THE "r"
+eg.1. ATTENTION: MUST START WITH THE r" "
 # multiple patterns ("run" or "ran")
 ptn = r"r[au]n"       # start with "r" means raw string
 print(re.search(ptn, "dog runs to cat"))    # <_sre.SRE_Match object; span=(4, 7), match='run'>
@@ -95,3 +95,38 @@ print(re.search(r"ab+", "abbbbb"))        # <_sre.SRE_Match object; span=(0, 6),
 # In this example, we expect to find at least 2 and at most 10 occurences of "b" following "a".
 print(re.search(r"ab{2,10}", "a"))        # None
 print(re.search(r"ab{2,10}", "abbbbb"))   # <_sre.SRE_Match object; span=(0, 6), match='abbbbb'>
+
+5.group()
+we can group the findings by (), and name diffrent groups in order to return the desired results easily.
+
+eg.1. (\d+) is to find all digital numbers, (.+) is to find all contents following 'Date', add a number in braket following 'group' can return the group desired.
+match = re.search(r"(\d+), Date: (.+)", "ID: 021523, Date: Feb/12/2017")
+print(match.group())                   # 021523, Date: Feb/12/2017
+print(match.group(1))                  # 021523
+print(match.group(2))                  # Date: Feb/12/2017
+
+eg.2. we can name the group by '?P<name>', then we can ask Python to return groups we desired.
+match = re.search(r"(?P<id>\d+), Date: (?P<date>.+)", "ID: 021523, Date: Feb/12/2017")
+print(match.group('id'))                # 021523
+print(match.group('date'))              # Date: Feb/12/2017
+
+6.findall
+Note that the terms we mentioned before can just find the first matched item, if you want to findall matched terms, use 'findall'.
+
+Example:
+
+# findall
+print(re.findall(r"r[ua]n", "run ran ren"))    # ['run', 'ran']
+
+# | : or
+print(re.findall(r"(run|ran)", "run ran ren")) # ['run', 'ran']
+
+7. how to replace strings by se.sub(), which is more flexible than string.replace():
+print(re.sub(r"r[au]ns", "catches", "dog runs to cat"))     # dog catches to cat
+
+8. how to split a string 
+print(re.split(r"[,;\.]", "a;b,c.d;e"))             # ['a', 'b', 'c', 'd', 'e']
+
+9. We can compile a regular expression and store it in a variable, then repeatly use this variable to search the desired patterns.
+compiled_re = re.compile(r"r[ua]n")
+print(compiled_re.search("dog ran to cat"))  # <_sre.SRE_Match object; span=(4, 7), match='ran'>

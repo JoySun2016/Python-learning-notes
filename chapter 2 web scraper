@@ -1,0 +1,19 @@
+1. regular expression (正则表达式) RegEx
+The library for regular expression in Python is 're'
+Example:
+
+import re
+# regular expression
+pattern1 = "cat"
+pattern2 = "bird"
+string = "dog runs to cat"
+print(re.search(pattern1, string))  # <_sre.SRE_Match object; span=(12, 15), match='cat'>
+print(re.search(pattern2, string))  # None
+
+2. flexible match by RegEx
+ex.1. ATTENTION: MUST START WITH THE "r"
+# multiple patterns ("run" or "ran")
+ptn = r"r[au]n"       # start with "r" means raw string
+print(re.search(ptn, "dog runs to cat"))    # <_sre.SRE_Match object; span=(4, 7), match='run'>
+
+ex2.

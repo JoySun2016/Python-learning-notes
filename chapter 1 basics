@@ -30,6 +30,10 @@
 4. numpy library
 
 5. iloc function:
-6. 
+6. How to get the Python program execution time?
+import time
+start_time = time.time()
+main()
+print("--- %s seconds ---" % (time.time() - start_time))
 
   
